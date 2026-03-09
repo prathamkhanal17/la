@@ -58,7 +58,7 @@ const UI = {
 };
 
 const Model = {
-  API_URL: 'https://la.prathamkhanal962.workers.dev',
+  API_URL: 'https://la.prathamkhanal962.workers.dev/query/stream',
 
   async streamReply(question, onUpdate, onComplete, onError) {
     try {
