@@ -58,31 +58,13 @@ const UI = {
 };
 
 const Model = {
-  async getEnvToken() {
-    if (this._token !== undefined) return this._token;
-    try {
-      const res = await fetch('/.env');
-      if (!res.ok) return null;
-      const text = await res.text();
-      const match = text.match(/HF_TOKEN\s*=\s*(.*)/);
-      this._token = match ? match[1].trim() : null;
-    } catch (e) {
-      this._token = null;
-    }
-    return this._token;
-  },
+  API_URL: 'https://la.prathamkhanal962.workers.dev',
 
   async streamReply(question, onUpdate, onComplete, onError) {
     try {
-      const token = await this.getEnvToken();
-      const headers = { 'Content-Type': 'application/json' };
-      if (token) {
-        headers['Authorization'] = `Bearer ${token}`;
-      }
-
-      const res = await fetch('https://pratham12111-la.hf.space/query/stream', {
+      const res = await fetch(this.API_URL, {
         method: 'POST',
-        headers,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question }),
       });
 
