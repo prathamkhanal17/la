@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ल - hora?</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --border: #000000;
+      --shadow-main: 4px 4px 0 0 #000000;
+      --shadow-msg: 2px 2px 0 0 #000000;
+      --msg-user-bg: #000000;
+      --msg-user-text: #ffffff;
+      --hero-text: #f1f5f9;
+      --hero-subtext: #cbd5e1;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    #messages::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    #messages::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+      border-radius: 0;
+    }
+  </style>
+</head>
+
+<body class="flex h-screen flex-col overflow-hidden relative">
+  <!-- Chat History -->
+  <main id="messages" class="flex-1 overflow-y-auto px-4 py-8 sm:px-6 relative">
+    <!-- Background Hero -->
+    <div id="hero"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none transition-opacity duration-500">
+      <div id="hero-char" class="text-[8rem] sm:text-[10rem] md:text-[12rem] font-bold select-none leading-none"
+        style="color: var(--hero-text);">ल
+      </div>
+      <div id="hero-text"
+        class="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.4em] font-medium mt-2 sm:-mt-4 text-center px-4"
+        style="color: var(--hero-subtext);">Legal Chat Bot</div>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 relative" id="message-container">
+      <!-- Messages will appear here -->
+    </div>
+  </main>
+
+  <!-- Chat Input -->
+  <footer class="bg-transparent px-3 pb-8 pt-3 sm:px-6 sm:pb-12 sm:pt-4">
+    <div class="mx-auto max-w-2xl flex items-end gap-2 sm:gap-3 p-2 sm:p-3 transition-all"
+      style="background: var(--bg); border: 2px solid var(--border); box-shadow: var(--shadow-main);">
+      <textarea id="prompt" rows="1" placeholder="Ask a legal question..."
+        class="flex-1 max-h-32 w-full resize-none border-0 bg-transparent py-2 px-2 sm:px-3 text-sm sm:text-base outline-none placeholder:text-slate-400"
+        style="field-sizing: content; color: var(--text);"></textarea>
+      <button id="send-btn"
+        class="inline-flex h-10 w-10 shrink-0 items-center justify-center bg-slate-900 text-white transition hover:opacity-80 disabled:opacity-20 mb-[1px] sm:mb-0.5 sm:mr-0.5"
+        disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m5 12 7-7 7 7" />
+          <path d="M12 19V5" />
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Lower Right Indicator -->
+  <div class="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-20 pointer-events-none">
+    <div class="text-[9px] md:text-[10px] font-mono tracking-widest opacity-40 select-none">ENGLISH</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
