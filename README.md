@@ -1,4 +1,4 @@
-# la
+# la live at https://prathamk.com.np/la
 
 A minimal web interface for querying Nepalese legal domains. 
 
