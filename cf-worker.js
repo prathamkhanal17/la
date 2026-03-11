@@ -1,7 +1,6 @@
 export default {
     async fetch(request, env) {
         const allowedOrigins = [
-            "http://localhost:3000",
             "https://prathamk.com.np",
             "https://www.prathamk.com.np",
         ];
